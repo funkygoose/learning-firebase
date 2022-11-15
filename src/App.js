@@ -1,6 +1,7 @@
 import React from 'react'
 import "./App.css";
-import { auth } from "./firebase/init";
+import { auth, db } from "./firebase/init";
+import { collection, addDoc } from "firebase/firestore"
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -10,6 +11,13 @@ import {
 function App() {
   const[user, setUser] = React.useState({});
   const [loading, setLoading] = React.useState(true);
+
+  function createPost() {
+    const post = {
+      title: "",
+      description: "",
+    }
+  }
 
   React.useEffect(() => { 
     onAuthStateChanged(auth, (user) => {
